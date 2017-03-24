@@ -1,0 +1,9 @@
+{
+  "name": "hapi-auto-route",
+  "version": "0.2.0",
+  "description": "Autoloads hapi routes",
+  "main": "index.js",
+  "repository": "https://github.com/sitrakay/hapi-auto-route.git",
+  "author": "Sitraka Ratsimba <sitraka.harry@gmail.com>",
+  "license": "MIT"
+}
