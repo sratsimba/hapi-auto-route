@@ -15,5 +15,8 @@
     "eslint-config-hapi": "^10.0.0",
     "eslint-plugin-hapi": "^4.0.0",
     "jest": "^19.0.2"
+  },
+  "dependencies": {
+    "joi": "^10.3.0"
   }
 }
