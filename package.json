@@ -5,5 +5,11 @@
   "main": "index.js",
   "repository": "https://github.com/sitrakay/hapi-auto-route.git",
   "author": "Sitraka Ratsimba <sitraka.harry@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^3.18.0",
+    "eslint-config-hapi": "^10.0.0",
+    "eslint-plugin-hapi": "^4.0.0",
+    "jest": "^19.0.2"
+  }
 }
