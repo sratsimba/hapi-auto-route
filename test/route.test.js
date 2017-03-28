@@ -8,7 +8,7 @@ describe('Route', () => {
 
         it('Return all valide files in the route path', () => {
 
-            expect(Route.files(__dirname + '/routes', '/**/!(_)*.js').length).toBe(3);
+            expect(Route.files(__dirname + '/routes', '/**/!(_)*.js')).toHaveLength(3);
         });
     });
 });
