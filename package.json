@@ -7,7 +7,8 @@
   "author": "Sitraka Ratsimba <sitraka.harry@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "jest --coverage --watch"
+    "test": "jest --coverage --watch",
+    "lint": "eslint lib/ test/"
   },
   "devDependencies": {
     "eslint": "^3.18.0",
