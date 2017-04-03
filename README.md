@@ -1,12 +1,12 @@
 # hapi-auto-route
 
+[![Semver](http://img.shields.io/SemVer/2.0.0.png)](http://semver.org/spec/v2.0.0.html)
 [![Dependency Status](https://david-dm.org/sitrakay/hapi-auto-route.svg)](https://david-dm.org/sitrakay/hapi-auto-route)
-
 [![devDependency Status](https://david-dm.org/sitrakay/hapi-auto-route/dev-status.svg)](https://david-dm.org/sitrakay/hapi-auto-route#info=devDependencies)
 
 Autoloads hapi routes.
 
-# Options
+## Options
 
 - `dir`: the absolute path to the route directories. This option is required.
 - `pattern`: glob pattern used to find route files. Defaults to `/**/!(_)*.js`.
