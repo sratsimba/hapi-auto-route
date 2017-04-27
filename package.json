@@ -1,6 +1,6 @@
 {
   "name": "hapi-auto-route",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Autoloads hapi routes",
   "author": "Sitraka Ratsimba <sitraka.harry@gmail.com>",
   "main": "lib/index.js",
