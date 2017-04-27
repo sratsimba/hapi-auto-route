@@ -23,12 +23,12 @@ lab.describe('Options', (done) => {
             done();
         });
 
-        lab.it('throws exception when dir is not set', (done) => {
+        lab.it('Doesn\'t throws exception when dir is not set', (done) => {
 
             Code.expect(() => {
 
                 Options.plugin({});
-            }).to.throw();
+            }).to.not.throw();
             done();
         });
     });
