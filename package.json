@@ -13,21 +13,17 @@
   "bugs": "https://github.com/sitrakay/hapi-auto-route/issues",
   "license": "MIT",
   "scripts": {
-    "test": "lab -t 100 -a code -L",
+    "test": "lab ",
     "test-debug": "lab -a code",
     "test-cov-html": "lab -r html -o coverage.html -a code"
-  },
-  "devDependencies": {
-    "code": "^4.0.0",
-    "lab": "^13.0.1"
-  },
-  "dependencies": {
-    "glob": "^7.1.1",
-    "joi": "^10.3.0"
   },
   "files": [
     "lib/",
     "LICENCE.txt",
     "README.md"
-  ]
+  ],
+  "devDependencies": {
+    "code": "^5.1.2",
+    "lab": "^15.2.1"
+  }
 }
