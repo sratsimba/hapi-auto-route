@@ -4,6 +4,8 @@
 [![Dependency Status](https://david-dm.org/sitrakary/hapi-auto-route.svg)](https://david-dm.org/sitrakary/hapi-auto-route)
 [![devDependency Status](https://david-dm.org/sitrakay/hapi-auto-route/dev-status.svg)](https://david-dm.org/sitrakay/hapi-auto-route#info=devDependencies)
 
+[![NPM](https://nodei.co/npm/hapi-auto-route.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/hapi-auto-route/)
+
 Autoloads hapi routes.
 
 ## Installation
