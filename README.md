@@ -52,7 +52,7 @@ Now, you can start the server and see `Hello` at `http://localhost:3000`.
 
 ## API
 
-- `dir`: the absolute path to the route directories. Defaults to `process.cwd() + '/routes'`.
+- `routes_dir`: directory where routes are located. `routes_dir` is relative to `process.cwd()`. Defaults to `'/routes'`.
 - `pattern`: glob pattern used to find route files. Defaults to `/**/!(_)*.js`.
 - `prefix`: Use directory tree as prefix. Defaults to `true`.
 
