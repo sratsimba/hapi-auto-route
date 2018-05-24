@@ -10,6 +10,8 @@ Autoloads hapi routes.
 
 ## Installation
 
+**Actually hapi-auto-routes doesn't support hapi v17.x.x**. The next release [dev-2.0.0](https://github.com/sitrakary/hapi-auto-route/tree/dev-2.0.0) will be compatible with hapi v17.x.x.
+
 Just type `yarn add hapi-auto-route` or `npm i -S hapi-auto-route`.
 
 ## Code Example
