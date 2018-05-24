@@ -25,4 +25,16 @@ lab.experiment('options', () => {
         expect(option.pattern).to.be.equal('**/!(_)*.js');
         expect(option.use_prefix).to.be.true();
     });
+
+    lab.it('Prevent the input of unused option key.', () => {
+
+        const throws = () => {
+
+            Option.validate({
+                routes_dir: 'r',
+                d: true
+            });
+        };
+        expect(throws).to.throw(Error);
+    });
 });
