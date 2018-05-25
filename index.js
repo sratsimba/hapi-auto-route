@@ -8,14 +8,20 @@ exports.plugin = {
     pkg: require('./package.json'),
     register: async (server, options) => {
 
-        let route = [];
+        let routes = [];
         const valideOptions = Option.validate(options);
         const getAllRoute = promisify(Route.getAll);
         const files = await getAllRoute(valideOptions);
         files.forEach((file) => {
 
-            route = Route.load(valideOptions, file);
-            server.route(route);
+            routes = Route.load(valideOptions, file);
+            if (valideOptions.use_prefix) {
+                routes.forEach((route) => {
+
+                    route.path = Route.getPathPrefix(valideOptions, file) + route.path;
+                });
+            }
+            server.route(routes);
         });
     }
 };

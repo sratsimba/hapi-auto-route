@@ -49,4 +49,19 @@ lab.experiment('plugin', () => {
         const result = await server.inject('/');
         expect(result.statusCode).to.be.equal(200);
     });
+
+
+    lab.it('Change route path if use_prefix is true', async () => {
+
+        const server = Hapi.Server({ port: 3000 });
+        await server.register({
+            plugin: HapiAutoRoute,
+            options: {
+                routes_dir: 'test/fixtures/routes',
+                use_prefix: true
+            }
+        });
+        const result = await server.inject('/auth/login');
+        expect(result.statusCode).to.be.equal(200);
+    });
 });
