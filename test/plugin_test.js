@@ -1,6 +1,7 @@
 'use strict';
 
 const HapiAutoRoute = require('../index.js');
+const Hapi = require('hapi');
 
 const { expect } = require('code');
 const lab = exports.lab = require('lab').script();
@@ -20,5 +21,19 @@ lab.experiment('plugin', () => {
         const plugin = HapiAutoRoute.plugin;
         expect(plugin.register).to.not.undefined();
         expect(plugin.register).to.be.function();
+    });
+
+    lab.it('sdfsf', async () => {
+
+        const server = Hapi.Server({ port: 3000 });
+        await server.register({
+            plugin: HapiAutoRoute,
+            options: {
+                routes_dir: 'test/fixtures/routes',
+                pattern: '**/!(_)*.js'
+            }
+        });
+        const result = await server.inject('/');
+        expect(result.statusCode).to.be.equal(200);
     });
 });
