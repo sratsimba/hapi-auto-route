@@ -3,5 +3,8 @@
 module.exports = {
     method: 'GET',
     path: '/logout',
-    handler: (request, h) => {}
+    handler: (request, h) => {
+
+        return '/logout';
+    }
 };
