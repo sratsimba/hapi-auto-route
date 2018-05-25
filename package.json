@@ -24,6 +24,11 @@
   ],
   "devDependencies": {
     "code": "^5.1.2",
+    "hapi": "^17.5.0",
     "lab": "^15.2.1"
+  },
+  "dependencies": {
+    "glob": "^7.1.2",
+    "joi": "^13.3.0"
   }
 }
