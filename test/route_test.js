@@ -58,10 +58,10 @@ lab.experiment('getPathPrefix', () => {
         expect(Route.getPathPrefix(options, routeFilePath)).to.be.equal('');
 
         routeFilePath = 'test/fixtures/routes/auth/login.js';
-        expect(Route.getPathPrefix(options, routeFilePath)).to.be.equal('auth');
+        expect(Route.getPathPrefix(options, routeFilePath)).to.be.equal('/auth');
 
         routeFilePath = 'test/fixtures/routes/auth/v2/login.js';
-        expect(Route.getPathPrefix(options, routeFilePath)).to.be.equal('auth/v2');
+        expect(Route.getPathPrefix(options, routeFilePath)).to.be.equal('/auth/v2');
 
     });
 });
