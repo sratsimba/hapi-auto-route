@@ -2,6 +2,7 @@
 
 const { expect } = require('code');
 const lab = exports.lab = require('lab').script();
+const Hapi = require('hapi');
 
 const RoutePath = require('../lib/route_path.js');
 
@@ -92,5 +93,24 @@ lab.experiment('load', () => {
         const routes = RoutePath.load(options, routeFilePath);
         expect(routes).to.be.array();
         expect(routes[0]).to.include(['method', 'path', 'handler']);
+    });
+});
+
+lab.experiment('register', () => {
+
+    lab.it('Register routes to the server', async () => {
+
+        const routes = [{
+            method: 'GET',
+            path: '/',
+            handler: (request, h) => {
+
+                return 'a';
+            }
+        }];
+        const server = Hapi.Server({ port: 8888 });
+        RoutePath.register(server, routes);
+        const res = await server.inject('/');
+        expect(res.statusCode).to.be.equal(200);
     });
 });
