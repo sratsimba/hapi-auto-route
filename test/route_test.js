@@ -95,22 +95,3 @@ lab.experiment('load', () => {
         expect(routes[0]).to.include(['method', 'path', 'handler']);
     });
 });
-
-lab.experiment('register', () => {
-
-    lab.it('Register routes to the server', async () => {
-
-        const routes = [{
-            method: 'GET',
-            path: '/',
-            handler: (request, h) => {
-
-                return 'a';
-            }
-        }];
-        const server = Hapi.Server({ port: 8888 });
-        Route.register(server, routes);
-        const res = await server.inject('/');
-        expect(res.statusCode).to.be.equal(200);
-    });
-});
