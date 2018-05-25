@@ -37,10 +37,12 @@ package.json
 
 ```javascript
 // routes/home.js
+'use strict';
+
 module.exports = {
     method: 'GET',
     path: '/',
-    handler: (request, reply) => reply('Hello');
+    handler: (request, h) => 'Hello';
 }
 ```
 
@@ -49,13 +51,24 @@ module.exports = {
 'use strict';
 
 const Hapi = require('hapi');
-const server = new Hapi.Server();
-server.connection({ port: 3000, labels: ['web'] });
-server.register(require('hapi-auto-route'), (error) => {
 
-    if(error) throw error;
-    server.start();
+const server = Hapi.Server({
+  port: 3000,
+  host: 'localhost'
 });
+
+const init = async () => {
+    await server.register(require('hapi-auto-route'));
+    await server.start();
+    console.log(`Server is running at: ${server.info.uri}`);
+};
+
+process.on('unhandledRejection', (error) => {
+  console.log(error);
+  process.exit();
+});
+
+init();
 ```
 
 Now, you can start the server and see `Hello` at `http://localhost:3000`.
@@ -63,9 +76,9 @@ Now, you can start the server and see `Hello` at `http://localhost:3000`.
 
 ## API
 
-- `routes_dir`: directory where routes are located. `routes_dir` is relative to `process.cwd()`. Defaults to `'/routes'`.
-- `pattern`: glob pattern used to find route files. Defaults to `/**/!(_)*.js`.
-- `prefix`: Use directory tree as prefix. Defaults to `true`.
+- `routes_dir`: directory where routes are located. `routes_dir` should be relative to `process.cwd()`. Defaults to `'routes'`.
+- `pattern`: glob pattern used to find route files. Defaults to `**/!(_)*.js`.
+- `use_prefix`: Use directory tree as prefix. Defaults to `true`.
 
 ## Contributing
 
@@ -73,4 +86,4 @@ If you find a bug in the source code or a mistake in the documentation, you can 
 
 ## Licence
 
-This project is licensed under the MIT License - see the [LICENSE.txt](https://github.com/sitrakay/hapi-auto-route/blob/master/LICENCE.txt) file for details.
+This project is licensed under the MIT License - see the [LICENSE.txt](https://github.com/sitrakay/hapi-auto-route/blob/master/LICENCE.md) file for details.
