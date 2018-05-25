@@ -6,11 +6,22 @@
 
 [![NPM](https://nodei.co/npm/hapi-auto-route.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/hapi-auto-route/)
 
-Autoloads hapi routes.
+hapi-auto-route is a hapi plugin that lets you load route objects automatically from a directory.
 
 ## Installation
 
-Just type `yarn add hapi-auto-route` or `npm i -S hapi-auto-route`.
+For Hapi `v17.x.x`:
+
+```bash
+npm i -S hapi-auto-route
+```
+
+For Hapi `v16.x.x`:
+
+```bash
+npm i -S hapi-auto-route@1.1.0
+```
+
 
 ## Code Example
 
