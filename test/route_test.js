@@ -2,7 +2,6 @@
 
 const { expect } = require('code');
 const lab = exports.lab = require('lab').script();
-const Hapi = require('hapi');
 
 const Route = require('../lib/route.js');
 
