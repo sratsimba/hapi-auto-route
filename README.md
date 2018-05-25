@@ -10,11 +10,6 @@ hapi-auto-route is a hapi plugin that lets you load route objects automatically 
 
 ## Installation
 
-<<<<<<< HEAD
-**Actually hapi-auto-routes doesn't support hapi v17.x.x**. The next release [dev-2.0.0](https://github.com/sitrakary/hapi-auto-route/tree/dev-2.0.0) will be compatible with hapi v17.x.x.
-
-Just type `yarn add hapi-auto-route` or `npm i -S hapi-auto-route`.
-=======
 For Hapi `v17.x.x`:
 
 ```bash
@@ -27,7 +22,6 @@ For Hapi `v16.x.x`:
 npm i -S hapi-auto-route@1.1.0
 ```
 
->>>>>>> dev-2.0.0
 
 ## Code Example
 
@@ -82,9 +76,9 @@ Now, you can start the server and see `Hello` at `http://localhost:3000`.
 
 ## API
 
-- `routes_dir`: directory where routes are located. `routes_dir` should be relative to `process.cwd()`. Defaults to `'routes'`.
+- `routes_dir`: directory where routes are located. `routes_dir` must be relatives from `process.cwd()`. Defaults to `'routes'`.
 - `pattern`: glob pattern used to find route files. Defaults to `**/!(_)*.js`.
-- `use_prefix`: Use directory tree as prefix. Defaults to `true`.
+- `use_prefix`: Use directory tree as prefix. Defaults to `false`.
 
 ## Contributing
 
@@ -92,8 +86,4 @@ If you find a bug in the source code or a mistake in the documentation, you can 
 
 ## Licence
 
-<<<<<<< HEAD
-This project is licensed under the MIT License - see the [LICENSE.txt](https://github.com/sitrakay/hapi-auto-route/blob/master/LICENCE.txt) file for details.
-=======
-This project is licensed under the MIT License - see the [LICENSE.txt](https://github.com/sitrakay/hapi-auto-route/blob/master/LICENCE.md) file for details.
->>>>>>> dev-2.0.0
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/sitrakay/hapi-auto-route/blob/master/LICENCE.md) file for details.
