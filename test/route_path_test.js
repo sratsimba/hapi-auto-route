@@ -64,3 +64,33 @@ lab.experiment('getPathPrefix', () => {
 
     });
 });
+
+lab.experiment('load', () => {
+
+    lab.it('return or an array of route object  from route file', () => {
+
+        const routeFilePath = 'test/fixtures/routes/auth/login.js';
+        const options = {
+            routes_dir: 'test/fixtures/routes',
+            pattern: '**/!(_)*.js',
+            use_prefix: false
+        };
+        const routes = RoutePath.load(options, routeFilePath);
+        expect(routes).to.be.array();
+        expect(routes[0]).to.include(['method', 'path', 'handler']);
+    });
+
+    lab.it('Return an array of route object if the route \
+        file contains an array of route objects.', () => {
+
+        const routeFilePath = 'test/fixtures/routes/index.js';
+        const options = {
+            routes_dir: 'test/fixtures/routes',
+            pattern: '**/!(_)*.js',
+            use_prefix: false
+        };
+        const routes = RoutePath.load(options, routeFilePath);
+        expect(routes).to.be.array();
+        expect(routes[0]).to.include(['method', 'path', 'handler']);
+    });
+});
