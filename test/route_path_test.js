@@ -1,7 +1,5 @@
 'use strict';
 
-const MockFs = require('mock-fs');
-
 const { expect } = require('code');
 const lab = exports.lab = require('lab').script();
 
@@ -12,25 +10,16 @@ lab.experiment('route path', () => {
     lab.it('should return all route path', () => {
 
         const options = {
-            routes_dir: 'test/routes',
+            routes_dir: 'test/fixtures/routes',
             pattern: '**/!(_)*.js'
         };
 
-        MockFs({
-            test: {
-                routes: {
-                    'index.js': 'fklsdf',
-                    'auth.js': 'hsdf'
-                }
-            }
-        });
         RoutePath.getAll(options, (err, files) => {
 
             if (err) {
-                // do nothing
+                throw err;
             }
             expect(files.length).to.be.above(1);
         });
-        MockFs.restore();
     });
 });
