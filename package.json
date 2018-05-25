@@ -24,8 +24,7 @@
   ],
   "devDependencies": {
     "code": "^5.1.2",
-    "lab": "^15.2.1",
-    "mock-fs": "^4.5.0"
+    "lab": "^15.2.1"
   },
   "dependencies": {
     "glob": "^7.1.2",
