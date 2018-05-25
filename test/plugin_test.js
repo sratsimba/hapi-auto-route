@@ -23,7 +23,7 @@ lab.experiment('plugin', () => {
         expect(plugin.register).to.be.function();
     });
 
-    lab.it('sdfsf', async () => {
+    lab.it('Register route to the server', async () => {
 
         const server = Hapi.Server({ port: 3000 });
         await server.register({
@@ -31,6 +31,19 @@ lab.experiment('plugin', () => {
             options: {
                 routes_dir: 'test/fixtures/routes',
                 pattern: '**/!(_)*.js'
+            }
+        });
+        const result = await server.inject('/');
+        expect(result.statusCode).to.be.equal(200);
+    });
+
+    lab.it('Apply default options', async () => {
+
+        const server = Hapi.Server({ port: 3000 });
+        await server.register({
+            plugin: HapiAutoRoute,
+            options: {
+                routes_dir: 'test/fixtures/routes'
             }
         });
         const result = await server.inject('/');
