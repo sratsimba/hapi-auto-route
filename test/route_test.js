@@ -4,7 +4,7 @@ const { expect } = require('code');
 const lab = exports.lab = require('lab').script();
 const Hapi = require('hapi');
 
-const RoutePath = require('../lib/route_path.js');
+const Route = require('../lib/route.js');
 
 lab.experiment('route path', () => {
 
@@ -15,7 +15,7 @@ lab.experiment('route path', () => {
             pattern: '**/!(_)*.js'
         };
 
-        RoutePath.getAll(options, (err, files) => {
+        Route.getAll(options, (err, files) => {
 
             if (err) {
                 throw err;
@@ -38,10 +38,10 @@ lab.experiment('getPathPrefix', () => {
 
         // These files exists in fixtures.
         let routeFilePath = 'test/fixtures/routes/index.js';
-        expect(RoutePath.getPathPrefix(options, routeFilePath)).to.be.equal('');
+        expect(Route.getPathPrefix(options, routeFilePath)).to.be.equal('');
 
         routeFilePath = 'test/fixtures/routes/auth/login.js';
-        expect(RoutePath.getPathPrefix(options, routeFilePath)).to.be.equal('');
+        expect(Route.getPathPrefix(options, routeFilePath)).to.be.equal('');
 
     });
 
@@ -55,13 +55,13 @@ lab.experiment('getPathPrefix', () => {
 
         // These files exists in fixtures.
         let routeFilePath = 'test/fixtures/routes/index.js';
-        expect(RoutePath.getPathPrefix(options, routeFilePath)).to.be.equal('');
+        expect(Route.getPathPrefix(options, routeFilePath)).to.be.equal('');
 
         routeFilePath = 'test/fixtures/routes/auth/login.js';
-        expect(RoutePath.getPathPrefix(options, routeFilePath)).to.be.equal('auth');
+        expect(Route.getPathPrefix(options, routeFilePath)).to.be.equal('auth');
 
         routeFilePath = 'test/fixtures/routes/auth/v2/login.js';
-        expect(RoutePath.getPathPrefix(options, routeFilePath)).to.be.equal('auth/v2');
+        expect(Route.getPathPrefix(options, routeFilePath)).to.be.equal('auth/v2');
 
     });
 });
@@ -76,7 +76,7 @@ lab.experiment('load', () => {
             pattern: '**/!(_)*.js',
             use_prefix: false
         };
-        const routes = RoutePath.load(options, routeFilePath);
+        const routes = Route.load(options, routeFilePath);
         expect(routes).to.be.array();
         expect(routes[0]).to.include(['method', 'path', 'handler']);
     });
@@ -90,7 +90,7 @@ lab.experiment('load', () => {
             pattern: '**/!(_)*.js',
             use_prefix: false
         };
-        const routes = RoutePath.load(options, routeFilePath);
+        const routes = Route.load(options, routeFilePath);
         expect(routes).to.be.array();
         expect(routes[0]).to.include(['method', 'path', 'handler']);
     });
@@ -109,7 +109,7 @@ lab.experiment('register', () => {
             }
         }];
         const server = Hapi.Server({ port: 8888 });
-        RoutePath.register(server, routes);
+        Route.register(server, routes);
         const res = await server.inject('/');
         expect(res.statusCode).to.be.equal(200);
     });
