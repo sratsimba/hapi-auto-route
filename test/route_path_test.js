@@ -5,8 +5,6 @@ const lab = exports.lab = require('lab').script();
 
 const RoutePath = require('../lib/route_path.js');
 
-const Path = require('path');
-
 lab.experiment('route path', () => {
 
     lab.it('should return all route path', () => {
@@ -38,10 +36,10 @@ lab.experiment('getPathPrefix', () => {
         };
 
         // These files exists in fixtures.
-        let routeFilePath = Path.join(process.cwd(), 'test/fixtures/routes/index.js');
+        let routeFilePath = 'test/fixtures/routes/index.js';
         expect(RoutePath.getPathPrefix(options, routeFilePath)).to.be.equal('');
 
-        routeFilePath = Path.join(process.cwd(), 'test/fixtures/routes/auth/login.js');
+        routeFilePath = 'test/fixtures/routes/auth/login.js';
         expect(RoutePath.getPathPrefix(options, routeFilePath)).to.be.equal('');
 
     });
@@ -55,10 +53,14 @@ lab.experiment('getPathPrefix', () => {
         };
 
         // These files exists in fixtures.
-        let routeFilePath = Path.join(process.cwd(), 'test/fixtures/routes/index.js');
+        let routeFilePath = 'test/fixtures/routes/index.js';
         expect(RoutePath.getPathPrefix(options, routeFilePath)).to.be.equal('');
 
-        routeFilePath = Path.join(process.cwd(), 'test/fixtures/routes/auth/login.js');
+        routeFilePath = 'test/fixtures/routes/auth/login.js';
         expect(RoutePath.getPathPrefix(options, routeFilePath)).to.be.equal('auth');
+
+        routeFilePath = 'test/fixtures/routes/auth/v2/login.js';
+        expect(RoutePath.getPathPrefix(options, routeFilePath)).to.be.equal('auth/v2');
+
     });
 });
