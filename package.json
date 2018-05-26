@@ -20,6 +20,7 @@
   "files": [
     "lib/",
     "LICENCE.txt",
+    "index.js",
     "README.md"
   ],
   "devDependencies": {
