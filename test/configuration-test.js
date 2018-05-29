@@ -5,7 +5,7 @@ const Lab = require('lab');
 const { expect } = require('code');
 
 // The hapi-auto-route plugin
-const { Configuration } = require('../lib/auto-route.js');
+const { Configuration } = require('../index.js');
 
 const lab = exports.lab = Lab.script();
 

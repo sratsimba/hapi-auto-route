@@ -17,7 +17,6 @@
     "html-coverage": "lab --reporter html --output coverage.html"
   },
   "files": [
-    "lib/",
     "LICENSE.txt",
     "index.js",
     "README.md"
