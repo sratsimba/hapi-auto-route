@@ -50,4 +50,17 @@ lab.describe('Option', () => {
             new Configuration(null, options);
         }).to.throw();
     });
+
+    lab.it('Throws an error when router settings are invalid', () => {
+
+        const options = {
+            routes_dir: 'sd',
+            pattern: 'df',
+            use_prefix: false
+        };
+        expect(() => {
+
+            new Configuration({}, options);
+        }).to.throw();
+    });
 });
