@@ -63,4 +63,16 @@ lab.describe('Option', () => {
             new Configuration({}, options);
         }).to.throw();
     });
+
+    lab.it('applies default plugin options when "options" is undifined.', () => {
+
+        const routerSetting = {
+            isCaseSensitive: true,
+            stripTrailingSlash: false
+        };
+        const config = new Configuration(routerSetting, {});
+        expect(config.plugin.routes_dir).to.be.equal('routes');
+        expect(config.plugin.pattern).to.be.equal('**/*.js');
+        expect(config.plugin.use_prefix).to.be.false();
+    });
 });
