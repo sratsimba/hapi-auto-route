@@ -13,9 +13,8 @@
   "bugs": "https://github.com/sitrakay/hapi-auto-route/issues",
   "license": "MIT",
   "scripts": {
-    "test": "lab ",
-    "test-debug": "lab -a code",
-    "test-cov-html": "lab -r html -o coverage.html -a code"
+    "test": "lab --coverage --lint",
+    "html-coverage": "lab --reporter html --output coverage.html"
   },
   "files": [
     "lib/",
