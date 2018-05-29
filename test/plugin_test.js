@@ -15,4 +15,16 @@ lab.describe('plugin', () => {
 
         expect(plugin).to.be.not.undefined();
     });
+
+    lab.it('use package.json file as plugin informations', () => {
+
+        expect(plugin.pkg).to.be.not.undefined();
+        expect(plugin.pkg).to.include(['name', 'version', 'description']);
+    });
+
+    lab.it('Has function register', () => {
+
+        expect(plugin.register).to.be.not.undefined();
+        expect(plugin.register).to.be.a.function();
+    });
 });

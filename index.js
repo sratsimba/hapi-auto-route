@@ -1,3 +1,6 @@
 'use strict';
 
-exports.plugin = {};
+exports.plugin = {
+    pkg: require('./package.json'),
+    register: async (server, options) => {}
+};
