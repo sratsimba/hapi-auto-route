@@ -86,4 +86,4 @@ If you find a bug in the source code or a mistake in the documentation, you can 
 
 ## Licence
 
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/sitrakay/hapi-auto-route/blob/master/LICENCE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE.txt](https://github.com/sitrakay/hapi-auto-route/blob/master/LICENSE.txt) file for details.
