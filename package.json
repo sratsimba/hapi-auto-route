@@ -24,9 +24,8 @@
     "README.md"
   ],
   "devDependencies": {
-    "code": "^5.1.2",
-    "hapi": "^17.5.0",
-    "lab": "^15.2.1"
+    "code": "^5.2.0",
+    "lab": "^15.4.5"
   },
   "dependencies": {
     "glob": "^7.1.2",
