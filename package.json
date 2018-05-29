@@ -19,7 +19,7 @@
   },
   "files": [
     "lib/",
-    "LICENCE.txt",
+    "LICENSE.txt",
     "index.js",
     "README.md"
   ],
