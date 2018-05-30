@@ -51,4 +51,16 @@ lab.describe('AutoRoute', () => {
             expect(autoRoute.routes.files.length).to.be.above(0);
         });
     });
+
+    lab.describe('#loadHapiRoutes()', () => {
+
+        lab.it('return hapi routes objecs and set routes objects', async () => {
+
+            const autoRoute = new AutoRoute(new Configuration(routerSetting, options));
+            await autoRoute.loadFiles();
+            autoRoute.loadRouteObjects();
+            expect(autoRoute.routes.objects).to.be.an.array();
+            expect(autoRoute.routes.objects[0]).to.include(['method', 'path', 'handler']);
+        });
+    });
 });
