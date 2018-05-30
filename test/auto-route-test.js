@@ -126,6 +126,22 @@ lab.describe('AutoRoute', () => {
 
             expect(autoRoute.routes.objects[0].path).to.be.equal('/pages/page1');
         });
+
+        lab.it('apply prefix on an array of route objects', async () => {
+
+            options.pattern = 'pages/index.js';
+            options.use_prefix = true;
+            routerSetting.stripTrailingSlash = true;
+            const autoRoute = new AutoRoute(new Configuration(routerSetting, options));
+            await autoRoute.loadFiles();
+            autoRoute.loadRouteObjects();
+            autoRoute.loadPrefixes();
+            autoRoute.applyRoutePrefixes();
+
+            expect(autoRoute.routes.objects[0][0].path).to.be.equal('/pages/ListPage1');
+            expect(autoRoute.routes.objects[0][1].path).to.be.equal('/pages/ListPage2');
+
+        });
     });
 
     lab.it('#run()', async () => {
