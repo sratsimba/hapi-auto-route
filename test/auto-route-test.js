@@ -1,10 +1,11 @@
 'use strict';
 
 const Lab = require('lab');
+const AutoRoute = require('../lib/auto-route');
+const Configuration = require('../lib/configuration.js');
 
 const { expect } = require('code');
 
-const { AutoRoute, Configuration } = require('../index.js');
 
 const lab = exports.lab = Lab.script();
 
@@ -109,4 +110,9 @@ lab.describe('AutoRoute', () => {
         });
     });
 
+    lab.it('#run()', async () => {
+
+        const autoRoute = new AutoRoute(new Configuration(routerSetting, options));
+        await autoRoute.run();
+    });
 });

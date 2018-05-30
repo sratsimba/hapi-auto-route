@@ -1,10 +1,10 @@
 'use strict';
 
 const Lab = require('lab');
+const Configuration = require('../lib/configuration');
 
 const { expect } = require('code');
 
-const { Configuration } = require('../index.js');
 
 const lab = exports.lab = Lab.script();
 
