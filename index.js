@@ -72,7 +72,11 @@ exports.AutoRoute = class {
             this.routes.prefixes = this.routes.files.map((file) => {
 
                 const relativePath = Path.relative(this.config.plugin.routes_dir, file);
-                return Path.dirname(relativePath).split(Path.sep); // Removes file basename and extension
+                let prefix = Path.dirname(relativePath);
+                if (prefix === '.') {
+                    prefix = '';
+                }
+                return prefix.split(Path.sep); // Removes file basename and extension
             });
         }
     }

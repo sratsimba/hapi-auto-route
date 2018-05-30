@@ -3,5 +3,5 @@
 module.exports = {
     method: 'GET',
     path: '/deep',
-    handler: (request, h) => 'page1'
+    handler: (request, h) => 'deep'
 };

@@ -95,6 +95,18 @@ lab.describe('AutoRoute', () => {
 
             expect(autoRoute.routes.prefixes).to.be.undefined();
         });
+
+        lab.it('replace dot whit an empty string', async () => {
+
+            options.pattern = 'index.js';
+            options.use_prefix = true;
+            const autoRoute = new AutoRoute(new Configuration(routerSetting, options));
+            await autoRoute.loadFiles();
+            autoRoute.loadRouteObjects();
+            autoRoute.loadPrefixes();
+
+            expect(autoRoute.routes.prefixes[0][0]).to.be.a.string().and.to.empty();
+        });
     });
 
 });
