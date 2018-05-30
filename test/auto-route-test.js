@@ -1,6 +1,7 @@
 'use strict';
 
 const Lab = require('lab');
+const Hapi = require('hapi');
 const AutoRoute = require('../lib/auto-route');
 const Configuration = require('../lib/configuration.js');
 
@@ -25,18 +26,36 @@ lab.describe('AutoRoute', () => {
         expect(AutoRoute).to.be.a.function(); // a class
     });
 
-    lab.describe('#constructor(config)', () => {
+    lab.describe('#constructor(server, options)', () => {
 
         lab.it('set configuration', () => {
 
-            const autoRoute = new AutoRoute(new Configuration(routerSetting, {}));
+            const server = Hapi.server({
+                router: routerSetting
+            });
+
+            const autoRoute = new AutoRoute(server, {});
             expect(autoRoute.config).to.be.instanceof(Configuration);
         });
 
         lab.it('set property routes which is an array', () => {
 
-            const autoRoute = new AutoRoute(new Configuration(routerSetting, {}));
+            const server = Hapi.server({
+                router: routerSetting
+            });
+
+            const autoRoute = new AutoRoute(server, {});
             expect(autoRoute.routes).to.be.an.object().and.include(['files']);
+        });
+
+        lab.it('has a server attached to it.', () => {
+
+            const server = Hapi.server({
+                router: routerSetting
+            });
+
+            const autoRoute = new AutoRoute(server, {});
+            expect(autoRoute.server).to.be.an.object();
         });
     });
 
@@ -44,7 +63,11 @@ lab.describe('AutoRoute', () => {
 
         lab.it('returns routes file path and set AutoRoute routes property', async () => {
 
-            const autoRoute = new AutoRoute(new Configuration(routerSetting, options));
+            const server = Hapi.server({
+                router: routerSetting
+            });
+
+            const autoRoute = new AutoRoute(server, options);
             const files = await autoRoute.loadFiles();
             expect(files).to.be.an.array();
             expect(files.length).to.be.above(0);
@@ -59,7 +82,11 @@ lab.describe('AutoRoute', () => {
 
             options.use_prefix = true;
 
-            const autoRoute = new AutoRoute(new Configuration(routerSetting, options));
+            const server = Hapi.server({
+                router: routerSetting
+            });
+
+            const autoRoute = new AutoRoute(server, options);
             await autoRoute.loadFiles();
             autoRoute.loadRouteObjects();
 
@@ -74,7 +101,13 @@ lab.describe('AutoRoute', () => {
 
             options.pattern = 'pages/page1.js';
             options.use_prefix = true;
-            const autoRoute = new AutoRoute(new Configuration(routerSetting, options));
+            options.use_prefix = true;
+
+            const server = Hapi.server({
+                router: routerSetting
+            });
+
+            const autoRoute = new AutoRoute(server, options);
             await autoRoute.loadFiles();
             autoRoute.loadRouteObjects();
             autoRoute.loadPrefixes();
@@ -89,7 +122,12 @@ lab.describe('AutoRoute', () => {
 
             options.pattern = 'pages/page1.js';
             options.use_prefix = false;
-            const autoRoute = new AutoRoute(new Configuration(routerSetting, options));
+
+            const server = Hapi.server({
+                router: routerSetting
+            });
+
+            const autoRoute = new AutoRoute(server, options);
             await autoRoute.loadFiles();
             autoRoute.loadRouteObjects();
             autoRoute.loadPrefixes();
@@ -102,7 +140,12 @@ lab.describe('AutoRoute', () => {
 
             options.pattern = 'index.js';
             options.use_prefix = true;
-            const autoRoute = new AutoRoute(new Configuration(routerSetting, options));
+
+            const server = Hapi.server({
+                router: routerSetting
+            });
+
+            const autoRoute = new AutoRoute(server, options);
             await autoRoute.loadFiles();
             autoRoute.loadRouteObjects();
             autoRoute.loadPrefixes();
@@ -118,7 +161,13 @@ lab.describe('AutoRoute', () => {
             options.pattern = 'pages/page1.js';
             options.use_prefix = true;
             routerSetting.stripTrailingSlash = true;
-            const autoRoute = new AutoRoute(new Configuration(routerSetting, options));
+            options.use_prefix = true;
+
+            const server = Hapi.server({
+                router: routerSetting
+            });
+
+            const autoRoute = new AutoRoute(server, options);
             await autoRoute.loadFiles();
             autoRoute.loadRouteObjects();
             autoRoute.loadPrefixes();
@@ -132,7 +181,13 @@ lab.describe('AutoRoute', () => {
             options.pattern = 'pages/index.js';
             options.use_prefix = true;
             routerSetting.stripTrailingSlash = true;
-            const autoRoute = new AutoRoute(new Configuration(routerSetting, options));
+            options.use_prefix = true;
+
+            const server = Hapi.server({
+                router: routerSetting
+            });
+
+            const autoRoute = new AutoRoute(server, options);
             await autoRoute.loadFiles();
             autoRoute.loadRouteObjects();
             autoRoute.loadPrefixes();
@@ -146,7 +201,13 @@ lab.describe('AutoRoute', () => {
 
     lab.it('#run()', async () => {
 
-        const autoRoute = new AutoRoute(new Configuration(routerSetting, options));
+        options.use_prefix = true;
+
+        const server = Hapi.server({
+            router: routerSetting
+        });
+
+        const autoRoute = new AutoRoute(server, options);
         await autoRoute.run();
     });
 });
