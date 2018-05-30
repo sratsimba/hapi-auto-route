@@ -1,6 +1,7 @@
 'use strict';
 
 const Lab = require('lab');
+const Prefix = require('../lib/prefix');
 
 const { expect } = require('code');
 
@@ -22,6 +23,22 @@ lab.describe('Prefix', () => {
         lab.it('replace dot with empty string', () => {
 
             expect(getPrefix('/a', '/a/1.js')).to.not.include(['.']).and.include(['']);
+        });
+    });
+
+    lab.describe('#apply(prefixes, routePath, stripTrailingSlash)', () => {
+
+        lab.it('create a new path based on prefix and route path', () => {
+
+            expect(Prefix.apply(['a', 'b'], '/')).to.be.equal('/a/b/');
+            expect(Prefix.apply(['a'], '/b')).to.be.equal('/a/b');
+            expect(Prefix.apply([''], '/')).to.be.equal('/');
+        });
+
+        lab.it('handle it remove trailing slash if stripTrailingSlash is true', () => {
+
+            expect(Prefix.apply(['a', 'b'], '/', true)).to.be.equal('/a/b');
+            expect(Prefix.apply([''], '/', true)).to.be.equal('/');
         });
     });
 });
