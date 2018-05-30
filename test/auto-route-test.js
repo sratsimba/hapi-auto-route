@@ -27,5 +27,11 @@ lab.describe('AutoRoute', () => {
             const autoRoute = new AutoRoute(new Configuration(routerSetting, {}));
             expect(autoRoute.config).to.be.instanceof(Configuration);
         });
+
+        lab.it('set property routes which is an array', () => {
+
+            const autoRoute = new AutoRoute(new Configuration(routerSetting, {}));
+            expect(autoRoute.routes).to.be.an.array();
+        });
     });
 });

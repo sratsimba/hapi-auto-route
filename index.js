@@ -38,6 +38,7 @@ exports.AutoRoute = class {
     constructor(config) {
 
         this.config = config;
+        this.routes = [];
     }
 };
 
