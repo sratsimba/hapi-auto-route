@@ -56,9 +56,13 @@ lab.describe('AutoRoute', () => {
 
         lab.it('return hapi routes objecs and set routes objects', async () => {
 
+            options.use_prefix = true;
+
             const autoRoute = new AutoRoute(new Configuration(routerSetting, options));
             await autoRoute.loadFiles();
             autoRoute.loadRouteObjects();
+            autoRoute.loadPrefix();
+
             expect(autoRoute.routes.objects).to.be.an.array();
             expect(autoRoute.routes.objects[0]).to.include(['method', 'path', 'handler']);
         });
@@ -76,7 +80,9 @@ lab.describe('AutoRoute', () => {
             autoRoute.loadPrefix();
 
             expect(autoRoute.routes.prefix).to.be.an.array();
-            expect(autoRoute.routes.prefix[0]).to.equal('pages');
+            expect(autoRoute.routes.prefix[0]).to.an.array();
+            expect(autoRoute.routes.prefix[0][0]).to.be.equal('pages');
+
         });
 
         lab.it('doesn\'t set routes.prefix if use prefix is false', async () => {
