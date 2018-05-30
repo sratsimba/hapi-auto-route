@@ -85,7 +85,7 @@ lab.describe('AutoRoute', () => {
 
         });
 
-        lab.it('doesn\'t set routes.prefixes if use prefix is false', async () => {
+        lab.it('set prefixes to be an array of empty string if plugin do not use prefix', async () => {
 
             options.pattern = 'pages/page1.js';
             options.use_prefix = false;
@@ -94,7 +94,8 @@ lab.describe('AutoRoute', () => {
             autoRoute.loadRouteObjects();
             autoRoute.loadPrefixes();
 
-            expect(autoRoute.routes.prefixes).to.be.undefined();
+            expect(autoRoute.routes.prefixes).to.be.an.array();
+            expect(autoRoute.routes.prefixes[0]).to.be.a.string().and.empty();
         });
 
         lab.it('replace dot whit an empty string', async () => {
@@ -107,6 +108,23 @@ lab.describe('AutoRoute', () => {
             autoRoute.loadPrefixes();
 
             expect(autoRoute.routes.prefixes[0][0]).to.be.a.string().and.to.empty();
+        });
+    });
+
+    lab.describe('#applyRoutePrefix()', () => {
+
+        lab.it('apply route prefix if plugin use prefixes', async () => {
+
+            options.pattern = 'pages/page1.js';
+            options.use_prefix = true;
+            routerSetting.stripTrailingSlash = true;
+            const autoRoute = new AutoRoute(new Configuration(routerSetting, options));
+            await autoRoute.loadFiles();
+            autoRoute.loadRouteObjects();
+            autoRoute.loadPrefixes();
+            autoRoute.applyRoutePrefixes();
+
+            expect(autoRoute.routes.objects[0].path).to.be.equal('/pages/page1');
         });
     });
 
