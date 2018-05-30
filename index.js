@@ -4,6 +4,7 @@ const Hoek = require('hoek');
 const Joi = require('joi');
 const Glob = require('glob');
 const Path = require('path');
+const { getPrefix } = require('./lib/prefix');
 
 const { promisify } = require('util');
 
@@ -67,16 +68,11 @@ exports.AutoRoute = class {
 
     loadPrefixes() {
 
+        const absoluteRoutesPath = Path.join(process.cwd(), this.config.plugin.routes_dir);
         if (this.config.plugin.use_prefix) {
-
             this.routes.prefixes = this.routes.files.map((file) => {
 
-                const relativePath = Path.relative(this.config.plugin.routes_dir, file);
-                let prefix = Path.dirname(relativePath);
-                if (prefix === '.') {
-                    prefix = '';
-                }
-                return prefix.split(Path.sep); // Removes file basename and extension
+                return getPrefix(absoluteRoutesPath, file);
             });
         }
     }
