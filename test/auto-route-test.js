@@ -61,7 +61,6 @@ lab.describe('AutoRoute', () => {
             const autoRoute = new AutoRoute(new Configuration(routerSetting, options));
             await autoRoute.loadFiles();
             autoRoute.loadRouteObjects();
-            autoRoute.loadPrefix();
 
             expect(autoRoute.routes.objects).to.be.an.array();
             expect(autoRoute.routes.objects[0]).to.include(['method', 'path', 'handler']);
@@ -77,24 +76,24 @@ lab.describe('AutoRoute', () => {
             const autoRoute = new AutoRoute(new Configuration(routerSetting, options));
             await autoRoute.loadFiles();
             autoRoute.loadRouteObjects();
-            autoRoute.loadPrefix();
+            autoRoute.loadPrefixes();
 
-            expect(autoRoute.routes.prefix).to.be.an.array();
-            expect(autoRoute.routes.prefix[0]).to.an.array();
-            expect(autoRoute.routes.prefix[0][0]).to.be.equal('pages');
+            expect(autoRoute.routes.prefixes).to.be.an.array();
+            expect(autoRoute.routes.prefixes[0]).to.an.array();
+            expect(autoRoute.routes.prefixes[0][0]).to.be.equal('pages');
 
         });
 
-        lab.it('doesn\'t set routes.prefix if use prefix is false', async () => {
+        lab.it('doesn\'t set routes.prefixes if use prefix is false', async () => {
 
             options.pattern = 'pages/page1.js';
             options.use_prefix = false;
             const autoRoute = new AutoRoute(new Configuration(routerSetting, options));
             await autoRoute.loadFiles();
             autoRoute.loadRouteObjects();
-            autoRoute.loadPrefix();
+            autoRoute.loadPrefixes();
 
-            expect(autoRoute.routes.prefix).to.be.undefined();
+            expect(autoRoute.routes.prefixes).to.be.undefined();
         });
     });
 

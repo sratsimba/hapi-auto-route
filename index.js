@@ -44,7 +44,9 @@ exports.AutoRoute = class {
         this.config = config;
         this.routes = {
             files: [],
-            objects: []
+            objects: [],
+            // this will be set as an array of prefix if the plugin option use_prefix is true.
+            prefixes: undefined
         };
     }
 
@@ -63,11 +65,11 @@ exports.AutoRoute = class {
         this.routes.objects = this.routes.files.map(require);
     }
 
-    loadPrefix() {
+    loadPrefixes() {
 
         if (this.config.plugin.use_prefix) {
 
-            this.routes.prefix = this.routes.files.map((file) => {
+            this.routes.prefixes = this.routes.files.map((file) => {
 
                 const relativePath = Path.relative(this.config.plugin.routes_dir, file);
                 return Path.dirname(relativePath).split(Path.sep); // Removes file basename and extension
