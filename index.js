@@ -2,6 +2,8 @@
 
 const Hoek = require('hoek');
 const Joi = require('joi');
+const Glob = require('glob');
+const { promisify } = require('util');
 
 const internals = {};
 
@@ -38,7 +40,17 @@ exports.AutoRoute = class {
     constructor(config) {
 
         this.config = config;
-        this.routes = [];
+        this.routes = {
+            files: []
+        };
+    }
+
+    async loadFiles() {
+
+        const glob = promisify(Glob);
+
+        this.routes.files = await glob(this.config.plugin.routes_dir);
+        return Hoek.clone(this.routes.files);
     }
 };
 
