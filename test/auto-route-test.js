@@ -63,4 +63,33 @@ lab.describe('AutoRoute', () => {
             expect(autoRoute.routes.objects[0]).to.include(['method', 'path', 'handler']);
         });
     });
+
+    lab.describe('#loadPrefix()', () => {
+
+        lab.it('set prefix if use_prefix is true.', async () => {
+
+            options.pattern = 'pages/page1.js';
+            options.use_prefix = true;
+            const autoRoute = new AutoRoute(new Configuration(routerSetting, options));
+            await autoRoute.loadFiles();
+            autoRoute.loadRouteObjects();
+            autoRoute.loadPrefix();
+
+            expect(autoRoute.routes.prefix).to.be.an.array();
+            expect(autoRoute.routes.prefix[0]).to.equal('pages');
+        });
+
+        lab.it('doesn\'t set routes.prefix if use prefix is false', async () => {
+
+            options.pattern = 'pages/page1.js';
+            options.use_prefix = false;
+            const autoRoute = new AutoRoute(new Configuration(routerSetting, options));
+            await autoRoute.loadFiles();
+            autoRoute.loadRouteObjects();
+            autoRoute.loadPrefix();
+
+            expect(autoRoute.routes.prefix).to.be.undefined();
+        });
+    });
+
 });

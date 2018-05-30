@@ -62,6 +62,18 @@ exports.AutoRoute = class {
 
         this.routes.objects = this.routes.files.map(require);
     }
+
+    loadPrefix() {
+
+        if (this.config.plugin.use_prefix) {
+
+            this.routes.prefix = this.routes.files.map((file) => {
+
+                const relativePath = Path.relative(this.config.plugin.routes_dir, file);
+                return Path.dirname(relativePath); // Removes file basename and extension
+            });
+        }
+    }
 };
 
 exports.plugin = {
