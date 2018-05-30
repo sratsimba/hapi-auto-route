@@ -20,7 +20,7 @@ internals.schema.routerSettings = Joi.object().keys({
     stripTrailingSlash: Joi.boolean().required()
 });
 
-exports.Configuration = class  {
+exports.Configuration = class {
     constructor(routerSetting, pluginOptions) {
 
         const settings = Joi.validate(routerSetting, internals.schema.routerSettings);
@@ -31,6 +31,13 @@ exports.Configuration = class  {
 
         this.router = Hoek.clone(settings.value);
         this.plugin = Hoek.clone(options.value);
+    }
+};
+
+exports.AutoRoute = class {
+    constructor(config) {
+
+        this.config = config;
     }
 };
 
