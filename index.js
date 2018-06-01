@@ -17,7 +17,7 @@ exports.plugin = {
 
         if (opts.use_prefix) {
             prefixes = AutoRoute.getPrefixes(files, Path.join(process.cwd(), opts.routes_dir));
-            routes = AutoRoute.updatePaths(prefixes, routes);
+            routes = AutoRoute.updatePaths(prefixes, routes, server.settings.router.stripTrailingSlash);
         }
 
         routes.forEach((route) => {

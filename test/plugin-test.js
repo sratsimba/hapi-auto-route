@@ -47,4 +47,25 @@ lab.describe('hapi-auto-route', () => {
         result = await server.inject('/pages/deep/deep');
         expect(result.statusCode).to.be.equal(200);
     });
+
+    lab.it('stripTrailingSlash', async () => {
+
+        const server = Hapi.Server({
+            port: 3000,
+            router: {
+                stripTrailingSlash: true
+            }
+        });
+        await server.register({
+            plugin: HapiAutoRoute,
+            options: {
+                routes_dir: './test/fixtures/with-trailing-slash',
+                use_prefix: true
+            }
+        });
+        let result = await server.inject('/');
+        expect(result.statusCode).to.be.equal(200);
+        result = await server.inject('/pages');
+        expect(result.statusCode).to.be.equal(200);
+    });
 });

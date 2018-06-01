@@ -95,6 +95,22 @@ lab.describe('AutoRoute', () => {
             expect(AutoRoute.updatePaths(prefixes, routes)[2].path).to.be.equal('/b/c/5');
 
         });
+
+        lab.it('strip trailing slash', () => {
+
+            const prefixes = [
+                '/',
+                '/b',
+                '/b/c'
+            ];
+            const routes = [{ path: '/' }, [{ path: '/' }, { path: '/3/' }, { path: '/4' }], { path: '/5/' }];
+            expect(AutoRoute.updatePaths(prefixes, routes, true)).to.be.an.array();
+            expect(AutoRoute.updatePaths(prefixes, routes, true)[0].path).to.be.equal('/');
+            expect(AutoRoute.updatePaths(prefixes, routes, true)[1][0].path).to.be.equal('/b');
+            expect(AutoRoute.updatePaths(prefixes, routes, true)[1][1].path).to.be.equal('/b/3');
+            expect(AutoRoute.updatePaths(prefixes, routes, true)[1][2].path).to.be.equal('/b/4');
+            expect(AutoRoute.updatePaths(prefixes, routes, true)[2].path).to.be.equal('/b/c/5');
+        });
     });
 
     lab.describe('validateOptions(options)', () => {
