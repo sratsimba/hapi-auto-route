@@ -1,27 +1,28 @@
 'use strict';
 
-const { promisify } = require('util');
-const Route = require('./lib/route.js');
-const Option = require('./lib/option');
+const Path = require('path');
+
+const AutoRoute = require('./lib/auto-route');
 
 exports.plugin = {
     pkg: require('./package.json'),
     register: async (server, options) => {
 
-        let routes = [];
-        const valideOptions = Option.validate(options);
-        const getAllRoute = promisify(Route.getAll);
-        const files = await getAllRoute(valideOptions);
-        files.forEach((file) => {
+        const opts = AutoRoute.validateOptions(options);
 
-            routes = Route.load(valideOptions, file);
-            if (valideOptions.use_prefix) {
-                routes.forEach((route) => {
+        let prefixes = [];
 
-                    route.path = Route.getPathPrefix(valideOptions, file) + route.path;
-                });
-            }
-            server.route(routes);
+        const files = await AutoRoute.getFiles(opts.routes_dir, opts.pattern);
+        let routes = AutoRoute.getRoutes(files);
+
+        if (opts.use_prefix) {
+            prefixes = AutoRoute.getPrefixes(files, Path.join(process.cwd(), opts.routes_dir));
+            routes = AutoRoute.updatePaths(prefixes, routes, server.settings.router.stripTrailingSlash);
+        }
+
+        routes.forEach((route) => {
+
+            server.route(route);
         });
     }
 };

@@ -2,6 +2,6 @@
 
 module.exports = {
     'method': 'GET',
-    'path': '/',
+    'path': '/deep',
     handler: (request, h) => 'index.js'
 };

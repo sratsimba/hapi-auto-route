@@ -2,6 +2,6 @@
 
 module.exports = {
     'method': 'GET',
-    'path': '/',
+    'path': '/p1.view',
     handler: (request, h) => 'index.js'
 };

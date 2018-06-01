@@ -13,23 +13,22 @@
   "bugs": "https://github.com/sitrakay/hapi-auto-route/issues",
   "license": "MIT",
   "scripts": {
-    "test": "lab ",
-    "test-debug": "lab -a code",
-    "test-cov-html": "lab -r html -o coverage.html -a code"
+    "test": "lab --coverage --lint",
+    "html-coverage": "lab --reporter html --output coverage.html"
   },
   "files": [
+    "LICENSE",
     "lib/",
-    "LICENCE.txt",
     "index.js",
     "README.md"
   ],
   "devDependencies": {
-    "code": "^5.1.2",
-    "hapi": "^17.5.0",
-    "lab": "^15.2.1"
+    "code": "5.x.x",
+    "hapi": "17.x.x",
+    "lab": "15.x.x"
   },
   "dependencies": {
-    "glob": "^7.1.2",
-    "joi": "^13.3.0"
+    "glob": "7.x.x",
+    "joi": "13.x.x"
   }
 }
