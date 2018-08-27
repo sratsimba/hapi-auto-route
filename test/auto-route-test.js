@@ -130,6 +130,7 @@ lab.describe('AutoRoute', () => {
 
                 AutoRoute.validateOptions({ not_in_props: '' });
             };
+
             expect(itThrow).to.throw();
         });
     });
