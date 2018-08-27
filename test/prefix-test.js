@@ -58,6 +58,7 @@ lab.describe('Prefix', () => {
                 const relativeBaseDir = 'a';
                 Prefix.parse(files[0], relativeBaseDir);
             };
+
             expect(itThrow).to.throw();
         });
     });
