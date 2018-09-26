@@ -6,7 +6,7 @@
 
 [![NPM](https://nodei.co/npm/hapi-auto-route.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/hapi-auto-route/)
 
-hapi-auto-route is a hapi plugin that lets you load route objects automatically from a directory.
+hapi-auto-route is a hapi plugin that lets you load route objects automatically from a directory. And allow routes path to be prefixed.
 
 ## Installation
 
