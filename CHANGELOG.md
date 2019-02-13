@@ -11,3 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## 2.0.2
 
 - Fix issues [#5](https://github.com/sitrakary/hapi-auto-route/issues/5).
+
+## 2.0.3
+
+- Update dependencies.
