@@ -10,7 +10,7 @@ hapi-auto-route is a hapi plugin that lets you load route objects automatically 
 
 ## Installation
 
-For Hapi `v17.x.x`:
+For Hapi `>= v17`:
 
 ```bash
 npm i -S hapi-auto-route
