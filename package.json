@@ -2,15 +2,15 @@
   "name": "hapi-auto-route",
   "version": "2.0.5",
   "description": "Autoloads hapi routes",
-  "author": "Sitraka Ratsimba <sitraka.harry@gmail.com>",
+  "author": "Sitraka Ratsimba <hsitraka@gmail.com>",
   "main": "lib/index.js",
   "keywords": [
     "hapi",
     "route",
     "autoload"
   ],
-  "repository": "https://github.com/sitrakay/hapi-auto-route.git",
-  "bugs": "https://github.com/sitrakay/hapi-auto-route/issues",
+  "repository": "https://github.com/hsitraka/hapi-auto-route.git",
+  "bugs": "https://github.com/hsitraka/hapi-auto-route/issues",
   "license": "MIT",
   "scripts": {
     "test": "lab --coverage --lint",
