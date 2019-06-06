@@ -1,9 +1,9 @@
 'use strict';
 
-const Lab = require('lab');
-const Hapi = require('hapi');
+const Lab = require('@hapi/lab');
+const Hapi = require('@hapi/hapi');
 const HapiAutoRoute = require('..');
-const { expect } = require('code');
+const { expect } = require('@hapi/code');
 
 const lab = exports.lab = Lab.script();
 
