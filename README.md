@@ -1,7 +1,7 @@
 # hapi-auto-route
 
-![npm](https://img.shields.io/npm/v/hapi-auto-route)
-![Travis (.org)](https://img.shields.io/travis/hsitraka/hapi-auto-route)
+![npm](https://img.shields.io/npm/v/hapi-auto-route?style=for-the-badge)
+![Travis (.org)](https://img.shields.io/travis/hsitraka/hapi-auto-route?style=for-the-badge)
 
 [![NPM](https://nodei.co/npm/hapi-auto-route.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/hapi-auto-route/)
 
