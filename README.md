@@ -1,8 +1,7 @@
 # hapi-auto-route
 
 ![npm](https://img.shields.io/npm/v/hapi-auto-route)
-[![Dependency Status](https://david-dm.org/sitrakary/hapi-auto-route.svg)](https://david-dm.org/sitrakary/hapi-auto-route)
-[![devDependency Status](https://david-dm.org/sitrakay/hapi-auto-route/dev-status.svg)](https://david-dm.org/sitrakay/hapi-auto-route#info=devDependencies)
+![Travis (.org)](https://img.shields.io/travis/hsitraka/hapi-auto-route)
 
 [![NPM](https://nodei.co/npm/hapi-auto-route.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/hapi-auto-route/)
 
