@@ -16,7 +16,7 @@ exports.plugin = {
         let routes = AutoRoute.getRoutes(files);
 
         if (opts.use_prefix) {
-            prefixes = AutoRoute.getPrefixes(files, Path.join(process.cwd(), opts.routes_dir));
+            prefixes = AutoRoute.getPrefixes(files, Path.resolve(opts.routes_dir));
             routes = AutoRoute.updatePaths(prefixes, routes, server.settings.router.stripTrailingSlash);
         }
 
