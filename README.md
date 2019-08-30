@@ -1,13 +1,13 @@
 # hapi-auto-route
 
 ![npm](https://img.shields.io/npm/v/hapi-auto-route?style=for-the-badge)
-![Travis (.org)](https://img.shields.io/travis/hsitraka/hapi-auto-route?style=for-the-badge)
+![Travis (.org)](https://img.shields.io/travis/sitraka-hq/hapi-auto-route?style=for-the-badge)
 
 [![NPM](https://nodei.co/npm/hapi-auto-route.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/hapi-auto-route/)
 
 hapi-auto-route is a hapi plugin that lets you load route objects automatically from a directory. And allow routes path to be prefixed.
 
-Maintainer: [Sitraka Ratsimba](https://github.com/hsitraka)
+Maintainer: [Sitraka Ratsimba](https://github.com/sitraka-hq)
 
 ## Installation
 
