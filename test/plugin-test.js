@@ -1,5 +1,6 @@
 'use strict';
 
+const Path = require('path');
 const Lab = require('@hapi/lab');
 const Hapi = require('@hapi/hapi');
 const HapiAutoRoute = require('..');
@@ -15,7 +16,7 @@ lab.describe('hapi-auto-route', () => {
         await server.register({
             plugin: HapiAutoRoute,
             options: {
-                routes_dir: './test/fixtures/routes'
+                routes_dir: Path.resolve(__dirname, 'fixtures/routes')
             }
         });
         let result = await server.inject('/');
