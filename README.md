@@ -51,6 +51,7 @@ module.exports = {
 // server.js
 'use strict';
 
+const Path = require('path');
 const Hapi = require('hapi');
 
 const server = Hapi.Server({
@@ -59,7 +60,10 @@ const server = Hapi.Server({
 });
 
 const init = async () => {
-    await server.register(require('hapi-auto-route'));
+    await server.register({
+      plugin: require('hapi-auto-route'),
+      options: Path.join(__dirname,'routes')
+     });
     await server.start();
     console.log(`Server is running at: ${server.info.uri}`);
 };
