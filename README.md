@@ -63,7 +63,8 @@ const init = async () => {
     await server.register({
       plugin: require('hapi-auto-route'),
       options: {
-        routes_dir: Path.join(__dirname,'routes')
+        routes_dir: Path.join(__dirname, 'routes')
+      }
      });
     await server.start();
     console.log(`Server is running at: ${server.info.uri}`);
