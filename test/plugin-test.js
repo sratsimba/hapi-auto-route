@@ -35,7 +35,7 @@ lab.describe('hapi-auto-route', () => {
         await server.register({
             plugin: HapiAutoRoute,
             options: {
-                routes_dir: './test/fixtures/routes',
+                routes_dir: Path.resolve(__dirname, 'fixtures/routes'),
                 use_prefix: true
             }
         });
@@ -60,7 +60,7 @@ lab.describe('hapi-auto-route', () => {
         await server.register({
             plugin: HapiAutoRoute,
             options: {
-                routes_dir: './test/fixtures/with-trailing-slash',
+                routes_dir: Path.resolve(__dirname, 'fixtures/with-trailing-slash'),
                 use_prefix: true
             }
         });
