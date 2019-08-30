@@ -117,8 +117,10 @@ lab.describe('AutoRoute', () => {
 
         lab.it('returns options when they are valid', () => {
 
-            const validOptions = AutoRoute.validateOptions({});
-            expect(validOptions.routes_dir).to.be.equal('routes');
+            const routes_dir = Path.resolve(__dirname, 'fixtures/routes');
+
+            const validOptions = AutoRoute.validateOptions({ routes_dir });
+            expect(validOptions.routes_dir).to.be.equal(routes_dir);
             expect(validOptions.pattern).to.be.equal('**/!(_)*.js');
             expect(validOptions.use_prefix).to.be.equal(false);
 
