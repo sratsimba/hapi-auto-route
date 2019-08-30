@@ -11,7 +11,7 @@ const lab = exports.lab = Lab.script();
 // These files exist in fixtures.
 const getFiles = () => {
 
-    const routeDir = './test/fixtures/routes';
+    const routeDir = Path.resolve(__dirname, 'fixtures/routes');
 
     const files = [
         'index.js'
