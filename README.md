@@ -77,7 +77,7 @@ Now, you can start the server and see `Hello` at `http://localhost:3000`.
 
 ## API
 
-- `routes_dir`: absolute path to routes directory.
+- `routes_dir`: absolute path to routes directory. `required`
 - `pattern`: glob pattern used to find route files. Defaults to `**/!(_)*.js`.
 - `use_prefix`: Use directory tree as prefix. Defaults to `false`.
 
