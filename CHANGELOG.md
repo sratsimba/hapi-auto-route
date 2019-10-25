@@ -26,3 +26,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### 3.0.1
 
 - Updates documentation.
+
+### 3.0.2
+
+- add dependency on @hapi/hoek
+
+### 3.0.3
+
+- Update documentation

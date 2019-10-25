@@ -39,12 +39,12 @@ package.json
 ```javascript
 // routes/home.js
 'use strict';
-
+ 
 module.exports = {
     method: 'GET',
     path: '/',
-    handler: (request, h) => 'Hello';
-}
+    handler: (request, h) => 'Hello'
+};
 ```
 
 ```javascript
@@ -52,7 +52,7 @@ module.exports = {
 'use strict';
 
 const Path = require('path');
-const Hapi = require('hapi');
+const Hapi = require('@hapi/hapi');
 
 const server = Hapi.Server({
   port: 3000,
