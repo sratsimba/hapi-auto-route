@@ -34,3 +34,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### 3.0.3
 
 - Update documentation
+
+### 3.0.4
+
+- Fix unpublished version
