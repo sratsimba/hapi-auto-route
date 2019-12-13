@@ -27,6 +27,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 - Updates documentation.
 
+### 3.0.2
+
+- add dependency on @hapi/hoek
+
+### 3.0.3
+
+- Update documentation
+
+### 3.0.4
+
+- Fix unpublished version
+
 ### 3.1.0
 
 - `routes_dir` accepts an array of parameters.
