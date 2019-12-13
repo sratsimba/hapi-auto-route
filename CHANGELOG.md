@@ -26,3 +26,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### 3.0.1
 
 - Updates documentation.
+
+### 3.1.0
+
+- `routes_dir` accepts an array of parameters.
+- Updates documentation.
