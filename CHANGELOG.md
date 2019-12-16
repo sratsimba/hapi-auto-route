@@ -45,3 +45,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 - `routes_dir` accepts an array of parameters.
 - Updates documentation.
+- Move from @hapi/code 6.x.x to 7.x.x
+- Move from @hapi/lab 20.x.x to 21.x.x
+- Mode from @hapi/joi 15.x.x to 16.x.x
