@@ -38,3 +38,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### 3.0.4
 
 - Fix unpublished version
+
+### 3.1.0
+
+- `routes_dir` accepts an array of parameters.
+- Updates documentation.

@@ -28,9 +28,17 @@ lab.describe('AutoRoute', () => {
 
     lab.describe('loadFiles', () => {
 
-        lab.it('load files in an array', () => {
+        lab.it('loads files in an array when given a single base directory', () => {
 
             AutoRoute.getFiles(routeDir, '**/*.js').then((files) => {
+
+                expect(files.length).to.be.above(0);
+            });
+        });
+
+        lab.it('loads files in an array when given an array of base directories', () => {
+
+            AutoRoute.getFiles([routeDir, `${routeDir}2`], '**/*.js').then((files) => {
 
                 expect(files.length).to.be.above(0);
             });
@@ -119,10 +127,16 @@ lab.describe('AutoRoute', () => {
 
             const routes_dir = Path.resolve(__dirname, 'fixtures/routes');
 
-            const validOptions = AutoRoute.validateOptions({ routes_dir });
-            expect(validOptions.routes_dir).to.be.equal(routes_dir);
-            expect(validOptions.pattern).to.be.equal('**/!(_)*.js');
-            expect(validOptions.use_prefix).to.be.equal(false);
+            const validOptionsForSingleDir = AutoRoute.validateOptions({ routes_dir });
+            expect(validOptionsForSingleDir.routes_dir).to.be.equal(routes_dir);
+            expect(validOptionsForSingleDir.pattern).to.be.equal('**/!(_)*.js');
+            expect(validOptionsForSingleDir.use_prefix).to.be.equal(false);
+
+            const multi_routes_dir = [routes_dir, `${routes_dir}2`];
+            const validOptionsForMultiDir = AutoRoute.validateOptions({ routes_dir: multi_routes_dir });
+            expect(validOptionsForMultiDir.routes_dir).to.be.equal(multi_routes_dir);
+            expect(validOptionsForMultiDir.pattern).to.be.equal('**/!(_)*.js');
+            expect(validOptionsForMultiDir.use_prefix).to.be.equal(false);
 
         });
 
