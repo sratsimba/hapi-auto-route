@@ -5,7 +5,7 @@
 
 [![NPM](https://nodei.co/npm/hapi-auto-route.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/hapi-auto-route/)
 
-hapi-auto-route is a hapi plugin that lets you load route objects automatically from a directory. And allow routes path to be prefixed.
+hapi-auto-route is a hapi plugin that lets you load route objects automatically by specifying the root directory/directories containing the routes. And allow routes path to be prefixed.
 
 Maintainer: [Sitraka Ratsimba](https://github.com/sitraka-hq)
 
@@ -80,10 +80,12 @@ init();
 
 Now, you can start the server and see `Hello` at `http://localhost:3000`.
 
+You can also provide an array of absolute paths if you want to auto-import from multiple base directories.
+
 
 ## API
 
-- `routes_dir`: absolute path to routes directory. `required`
+- `routes_dir`: absolute path(s) to routes directory/directories. `required`
 - `pattern`: glob pattern used to find route files. Defaults to `**/!(_)*.js`.
 - `use_prefix`: Use directory tree as prefix. Defaults to `false`.
 
