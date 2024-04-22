@@ -1,7 +1,8 @@
 # hapi-auto-route
 
 ![npm](https://img.shields.io/npm/v/hapi-auto-route?style=for-the-badge)
-![Travis (.org)](https://img.shields.io/travis/sitraka-hq/hapi-auto-route?style=for-the-badge)
+
+![example workflow](https://github.com/github/docs/actions/workflows/ci.yml/badge.svg)
 
 [![NPM](https://nodei.co/npm/hapi-auto-route.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/hapi-auto-route/)
 
