@@ -3,3 +3,4 @@ coverage.html
 *.log
 yarn.lock
 package-lock.json
+.idea
