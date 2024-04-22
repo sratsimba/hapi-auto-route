@@ -7,7 +7,7 @@
 
 hapi-auto-route is a hapi plugin that lets you load route objects automatically by specifying the root directory/directories containing the routes. And allow routes path to be prefixed.
 
-Maintainer: [Sitraka Ratsimba](https://github.com/sitraka-hq)
+Maintainer: [Sitraka Ratsimba](https://github.com/cooxe)
 
 ## Installation
 
