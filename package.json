@@ -1,8 +1,8 @@
 {
-  "name": "hapi-auto-route",
-  "version": "3.2.0",
+  "name": "hapijs-route",
+  "version": "3.2.2",
   "description": "Autoloads hapi routes",
-  "author": "Sitraka Ratsimba <sitraka@cooxe.com>",
+  "author": "Sitraka Ratsimba <sitraka.ratsimba@yahoo.com>",
   "main": "index.js",
   "keywords": [
     "hapi",
@@ -11,9 +11,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cooxe/hapi-auto-route.git"
+    "url": "git+https://github.com/cooxe/hapijs-route.git"
   },
-  "bugs": "https://github.com/cooxe/hapi-auto-route/issues",
+  "bugs": "https://github.com/cooxe/hapijs-route/issues",
   "license": "MIT",
   "scripts": {
     "test": "lab --coverage --lint",

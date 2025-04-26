@@ -1,9 +1,9 @@
-# hapi-auto-route
+# hapijs-route
 
-[![NPM](https://nodei.co/npm/hapi-auto-route.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/hapi-auto-route/)
-![Github action](https://github.com/sratsimba/hapi-auto-route/actions/workflows/ci.yml/badge.svg)
+[![NPM](https://nodei.co/npm/hapijs-route.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/hapijs-route/)
+![Github action](https://github.com/sratsimba/hapijs-route/actions/workflows/ci.yml/badge.svg)
 
-hapi-auto-route is a hapi plugin that lets you load route objects automatically by specifying the root directory/directories containing the routes. And allow routes path to be prefixed.
+hapijs-route is a hapi plugin that lets you load route objects automatically by specifying the root directory/directories containing the routes. And allow routes path to be prefixed.
 
 Maintainer: [Sitraka Ratsimba](https://github.com/sratsimba)
 
@@ -12,7 +12,7 @@ Maintainer: [Sitraka Ratsimba](https://github.com/sratsimba)
 For Hapi `>= v17`:
 
 ```bash
-npm i -S hapi-auto-route
+npm i -S hapijs-route
 ```
 
 For Hapi `v16.x.x`:
@@ -59,7 +59,7 @@ const server = Hapi.Server({
 
 const init = async () => {
     await server.register({
-      plugin: require('hapi-auto-route'),
+      plugin: require('hapijs-route'),
       options: {
         routes_dir: Path.join(__dirname, 'routes')
       }
@@ -89,8 +89,8 @@ You can also provide an array of absolute paths if you want to auto-import from 
 
 ## Contributing
 
-If you find a bug in the source code or a mistake in the documentation, you can help us by [submitting an issue](https://github.com/sratsimba/hapi-auto-route/issues) or a [pull request](https://github.com/sratsimba/hapi-auto-route/pulls) with a fix.
+If you find a bug in the source code or a mistake in the documentation, you can help us by [submitting an issue](https://github.com/sratsimba/hapijs-route/issues) or a [pull request](https://github.com/sratsimba/hapijs-route/pulls) with a fix.
 
 ## Licence
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/sratsimba/hapi-auto-route/blob/master/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/sratsimba/hapijs-route/blob/master/LICENSE) file for details.
