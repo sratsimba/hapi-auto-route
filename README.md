@@ -1,11 +1,11 @@
 # hapi-auto-route
 
 [![NPM](https://nodei.co/npm/hapi-auto-route.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/hapi-auto-route/)
-![Github action](https://github.com/cooxe/hapi-auto-route/actions/workflows/ci.yml/badge.svg)
+![Github action](https://github.com/sratsimba/hapi-auto-route/actions/workflows/ci.yml/badge.svg)
 
 hapi-auto-route is a hapi plugin that lets you load route objects automatically by specifying the root directory/directories containing the routes. And allow routes path to be prefixed.
 
-Maintainer: [Sitraka Ratsimba](https://github.com/cooxe)
+Maintainer: [Sitraka Ratsimba](https://github.com/sratsimba)
 
 ## Installation
 
@@ -89,8 +89,8 @@ You can also provide an array of absolute paths if you want to auto-import from 
 
 ## Contributing
 
-If you find a bug in the source code or a mistake in the documentation, you can help us by [submitting an issue](https://github.com/cooxe/hapi-auto-route/issues) or a [pull request](https://github.com/cooxe/hapi-auto-route/pulls) with a fix.
+If you find a bug in the source code or a mistake in the documentation, you can help us by [submitting an issue](https://github.com/sratsimba/hapi-auto-route/issues) or a [pull request](https://github.com/sratsimba/hapi-auto-route/pulls) with a fix.
 
 ## Licence
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/cooxe/hapi-auto-route/blob/master/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/sratsimba/hapi-auto-route/blob/master/LICENSE) file for details.
